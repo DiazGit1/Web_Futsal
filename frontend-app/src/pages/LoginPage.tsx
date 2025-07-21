@@ -63,7 +63,7 @@ return (
         <button type="submit">Login</button>
       </form>
       <p className="switch-link">
-        Sudah punya akun? <Link to="/login">Login di sini</Link>
+        belum punya akun? <Link to="/register">Registrasi di sini</Link>
       </p>
     </div>
   );
