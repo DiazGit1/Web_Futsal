@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import api from '../services/api';
 import { useNavigate } from 'react-router-dom'; // 1. Import useNavigate
 import { Link } from 'react-router-dom';
-import '../styles/AuthForm.css';
+import '../styles/Authform.css';
 
 // Definisikan tipe untuk struktur error dari Axios
 interface ApiError {
