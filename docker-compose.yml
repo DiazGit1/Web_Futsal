@@ -1,0 +1,40 @@
+services:
+  # Layanan untuk Backend (Node.js API)
+  backend:
+    build:
+      context: ./website-backend-baru
+      dockerfile: Dockerfile
+    container_name: backend_app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      # PENTING: Ganti dengan koneksi string MongoDB Atlas Anda
+      - MONGO_URI=mongodb://127.0.0.1:27017/auth_db
+      - JWT_SECRET=rahasiajwt123
+      - PORT=5000
+    volumes:
+      - ./website-backend-baru/uploads:/app/uploads
+    networks:
+      - reservasi-net
+
+  # Layanan untuk Frontend (React App)
+  frontend:
+    build:
+      context: ./frontend-app
+      dockerfile: Dockerfile
+      args:
+        # Mengirim URL API ke dalam build-time environment frontend
+        - VITE_API_URL=http://localhost:5000/api
+    container_name: frontend_app
+    restart: unless-stopped
+    ports:
+      - "3028:80"
+    depends_on:
+      - backend
+    networks:
+      - reservasi-net
+
+networks:
+  reservasi-net:
+    driver: bridge

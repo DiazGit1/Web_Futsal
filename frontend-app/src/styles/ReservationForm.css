@@ -1,0 +1,133 @@
+/* src/styles/ReservationForm.css */
+
+.reservation-container {
+  max-width: 700px; /* Sedikit lebih lebar */
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.reservation-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.reservation-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Membuat 2 kolom */
+  gap: 20px;
+}
+
+/* Atur agar beberapa elemen memenuhi 2 kolom */
+.reservation-form .full-width {
+  grid-column: 1 / -1;
+}
+
+.reservation-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reservation-form label {
+  font-weight: 500;
+  color: #34495e;
+}
+
+.reservation-form input,
+.reservation-form textarea,
+.reservation-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.reservation-form input:focus,
+.reservation-form textarea:focus,
+.reservation-form select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.reservation-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.reservation-form .total-harga {
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2c3e50;
+  border: 1px solid #bdc3c7;
+}
+
+/* Custom styling untuk input file */
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  text-align: center;
+}
+.file-input-wrapper:hover {
+  background-color: #e9ecef;
+}
+.file-input-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.file-input-wrapper .file-name {
+  color: #555;
+}
+
+.reservation-form .submit-button {
+  padding: 15px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.reservation-form .submit-button:hover {
+  background-color: #229954;
+}
+
+.reservation-form .submit-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+  .reservation-form .form-grid {
+    grid-template-columns: 1fr; /* Semua jadi 1 kolom */
+  }
+}
