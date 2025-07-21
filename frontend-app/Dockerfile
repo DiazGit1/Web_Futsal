@@ -1,4 +1,4 @@
-# Tahap 1: Build aolikasi React
+# Tahap 1: Build aplikasi React
 FROM node:18-alpine AS build
 
 # Tentukan direktori kerja
@@ -13,9 +13,12 @@ RUN npm install
 # Salin sisa kode aplikasi
 COPY . .
 
-# Argumen build untuk URL API dari docker-compose
+# Terima build argument dari docker-compose
 ARG VITE_API_URL
-ENV VITE_API_URL=$VITE_API_URL
+
+# BUAT FILE .env.production DI DALAM KONTAINER
+# Ini akan memastikan Vite menggunakan URL yang benar
+RUN echo "VITE_API_URL=${VITE_API_URL}" > .env.production
 
 # Build aplikasi untuk production
 RUN npm run build
